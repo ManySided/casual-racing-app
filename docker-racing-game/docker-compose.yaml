@@ -1,0 +1,21 @@
+version: '3.7'
+
+networks:
+  sp-network:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres:12
+    ports:
+      - '5432:5432'
+    container_name: postgresql
+    networks:
+      - sp-network
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+      POSTGRES_DB: 'postgres'
+    volumes:
+      - ./postgres/init:/docker-entrypoint-initdb.d
+
