@@ -1,0 +1,15 @@
+server:
+  port: 8083
+
+spring:
+  datasource:
+    url: ${POSTGRES_ADDRESS:jdbc:postgresql://localhost:5432/coredb}
+    username: ${POSTGRES_USER:core}
+    password: ${POSTGRES_PASSWORD:1xbn1URIwB}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        default_schema: sp
+    hibernate:
+      ddl-auto: none
